@@ -24,11 +24,9 @@ IBM Plex Sans JP の持つモダンで高い可読性はそのままに、Google
 
 ## 表示サンプル
 
-TODO ここに表示サンプルの画像を追加する
-
 | 通常版 (幅比率 半角1:全角2) | 35版 (幅比率 半角3:全角5) |
 | :---: | :---: |
-| ![image](https://placehold.jp/600x300.png?text=GuguruSansCode) | ![image]() |
+| <img width="868" height="620" alt="image" src="https://github.com/user-attachments/assets/1a253392-7729-47b3-bdfb-3aa3b2543d14" /> | <img width="876" height="656" alt="image" src="https://github.com/user-attachments/assets/42f02df0-d3b0-4570-9315-6b01b9dd8ff4" /> |
 
 ## ビルド
 
@@ -63,6 +61,4 @@ TODO make.ps1 はこれから作成する
 
 SIL OPEN FONT LICENSE Version 1.1 が適用され、商用・非商用問わず利用可能です。
 
-- `Guguru Sans Code` is licensed under the [SIL Open Font License, Version 1.1](./LICENSE).
-- `Google Sans Code` is licensed under the [SIL Open Font License, Version 1.1](./source/Google-Sans-Code/OFL.txt).
-- `IBM Plex Sans JP` is licensed under the [SIL Open Font License, Version 1.1](./source/IBM-Plex-Sans-JP/license.txt).
+各合成元フォントのライセンスは [source](./source/) ディレクトリに格納されています。
