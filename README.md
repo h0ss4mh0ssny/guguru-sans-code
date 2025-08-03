@@ -2,9 +2,9 @@
 
 Guguru Sans Code は、開発者向けフォントの [Google Sans Code](https://github.com/googlefonts/googlesans-code) と日本語フォントの [IBM Plex Sans JP](https://github.com/IBM/plex) を合成したプログラミング向けフォントです。
 
-IBM Plex Sans JP の持つモダンで高い可読性はそのままに、Google Sans Code 由来の調和的で判読性の高い英数字を提供することを目指しています。
+標準的で美しい字体の Google Sans Code を日本語環境でも使いやすいように幅などを調整しました。
 
-[👉 ダウンロード](https://github.com/yuru7/guguru-sans-code/releases/latest)
+[👉 ダウンロード](https://github.com/yuru7/guguru-sans-code/releases/latest)  
 ※「Assets」内の zip ファイルをダウンロードしてご利用ください。
 
 ## 特徴
