@@ -145,11 +145,11 @@ def generate_font(jp_style, eng_style, merged_style):
     # Hack フォントをマージする
     # merge_hack(jp_font, eng_font, merged_style)
 
-    # if options.get("console"):
-    #     # East Asian Ambiguous Width 文字の半角化
-    #     eaaw_width_to_half(jp_font)
-    #     # コンソール用グリフを追加する
-    #     add_console_glyphs(eng_font)
+    if options.get("console"):
+        # East Asian Ambiguous Width 文字の半角化
+        eaaw_width_to_half(jp_font)
+        # コンソール用グリフを追加する
+        add_console_glyphs(jp_font)
 
     if not options.get("console"):
         delete_not_console_glyphs(eng_font)
@@ -821,20 +821,24 @@ def eaaw_width_to_half(jp_font):
             glyph.width = half_width
 
 
-def add_console_glyphs(eng_font):
-    eng_width = eng_font[0x0030].width
-
+def add_console_glyphs(jp_font):
+    half_width = 500
     # HEAVY CHECK MARK (U+2714) を追加
     # この記号は Docker コマンドなどで使用されている
-    eng_font.selection.select(("unicode", None), 0x2713)
-    eng_font.copy()
-    eng_font.selection.select(("unicode", None), 0x2714)
-    eng_font.paste()
-    for glyph in eng_font.selection.byGlyphs:
+    jp_font.selection.select(("unicode", None), 0x2713)
+    jp_font.copy()
+    jp_font.selection.select(("unicode", None), 0x2714)
+    jp_font.paste()
+    for glyph in jp_font.selection.byGlyphs:
         glyph.stroke("circular", 35, removeinternal=True)
-        glyph.width = eng_width
 
-    eng_font.selection.none()
+    jp_font.selection.select(("unicode", "ranges"), 0x2713, 0x2714)
+    for glyph in jp_font.selection.byGlyphs:
+        glyph.transform(psMat.scale(0.6, 1))
+        glyph.transform(psMat.translate((half_width - glyph.width) / 2, 0))
+        glyph.width = half_width
+
+    jp_font.selection.none()
 
 
 def scale_glyph_from_center(glyph, scale_x, scale_y):
