@@ -11,8 +11,12 @@ Remove-Item -Path .\build -Recurse -Force
 
 # 並列処理内で、処理が重いNerd Fontsのビルドを優先して処理する
 $option_and_output_folder = @(
+    @("--console --nerd-font", "consoleNF-"), # ビルド コンソール Nerd Fonts版
+    @("--console --35 --nerd-font", "console35NF-"), # ビルド コンソール 3:5幅 Nerd Fonts版
     @("", "-"), # ビルド 通常版
-    @("--35", "35-") # ビルド 3:5幅版
+    @("--35", "35-"), # ビルド 3:5幅版
+    @("--console", "console-"), # ビルド コンソール版
+    @("--console --35", "console35-") # ビルド コンソール 3:5幅版
 )
 
 $option_and_output_folder | Foreach-Object -ThrottleLimit 4 -Parallel {
@@ -23,8 +27,8 @@ $option_and_output_folder | Foreach-Object -ThrottleLimit 4 -Parallel {
 }
 
 $move_file_src_dest = @(
-    @("GuguruSansCode*-*.ttf", "GuguruSansCode_$version", ""),
-    @()
+    @("GuguruSansCode*NF*-*.ttf", "GuguruSansCodeNF_$version", "NF"),
+    @("GuguruSansCode*-*.ttf", "GuguruSansCode_$version", "")
 )
 
 $timestamp = Get-Date -Format "yyyyMMddHHmmss"
@@ -45,8 +49,8 @@ $move_file_src_dest | Foreach-Object {
         $variant = "_$($_[2])"
     }
     @(
-        # @("*Console35*.ttf", "GuguruSansCodeConsole35$($variant)"),
-        # @("*Console*.ttf", "GuguruSansCodeConsole$($variant)"),
+        @("*Console35*.ttf", "GuguruSansCodeConsole35$($variant)"),
+        @("*Console*.ttf", "GuguruSansCodeConsole$($variant)"),
         @("*35*.ttf", "GuguruSansCode35$($variant)"),
         @("*.ttf", "GuguruSansCode$($variant)")
     ) | Foreach-Object {
