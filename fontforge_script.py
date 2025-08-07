@@ -645,7 +645,7 @@ def transform_half_width(jp_font, eng_font):
     after_width_eng = HALF_WIDTH_12
     # 単純な 縮小後幅 / 元の幅 だと狭くなりすりぎるので、
     # 倍率を考慮して分子は大きめにしている
-    x_scale = 546 / before_width_eng
+    x_scale = 528 / before_width_eng
     for glyph in eng_font.glyphs():
         if glyph.width > 0:
             # リガチャ考慮
@@ -653,7 +653,7 @@ def transform_half_width(jp_font, eng_font):
                 glyph.width / before_width_eng
             )
             # 縮小
-            glyph.transform(psMat.scale(x_scale, 1))
+            glyph.transform(psMat.scale(x_scale, 0.98))
             # 幅を設定
             glyph.transform(
                 psMat.translate((after_width_eng_multiply - glyph.width) / 2, 0)
