@@ -194,8 +194,8 @@ def generate_font(jp_style, eng_style, merged_style):
         add_nerd_font_glyphs(jp_font, eng_font)
 
     # オプション毎の修飾子を追加する
-    variant = f"{WIDTH_35_STR} " if options.get("35") else ""
-    variant += f"{CONSOLE_STR} " if options.get("console") else ""
+    variant = f"{CONSOLE_STR} " if options.get("console") else ""
+    variant += WIDTH_35_STR if options.get("35") else ""
     variant += (
         INVISIBLE_ZENKAKU_SPACE_STR if options.get("hidden-zenkaku-space") else ""
     )
