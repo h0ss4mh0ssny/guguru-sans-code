@@ -4,3 +4,5 @@ nine touch 10-11 y 0.25 @14-45
 six touch 10-11 y -0.5 @14-45
 
 braceright touch 0-76 y 1.0 @18-19
+
+g left 35-36,51

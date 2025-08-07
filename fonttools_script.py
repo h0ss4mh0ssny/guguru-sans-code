@@ -96,7 +96,7 @@ def add_hinting(input_font_path, output_font_path, variant, style):
         # "0",
         # "-a",
         # "nnn",
-        "-I",
+        # "-I",
         input_font_path,
         output_font_path,
     ]
